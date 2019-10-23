@@ -1,16 +1,16 @@
 
 <div class="container">
 
-  <form>
+  <form class="form-group" #facebook="ngForm" (ngSubmit)="onSubmit(facebook)">
 
-  <div class="form-group">
-    <label for="postURL">Post URL</label>
-    <input type="text" class="form-control" id="postURL" placeholder="Post URL" style="width:80%;">
-  </div>
+    <div class="form-group">
+      <label for="postURL">Post URL</label>
+      <input type="text" class="form-control" id="postURL" name="postURL" ngModel #cc="ngModel" placeholder="Post URL" style="width:80%;">
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="btn btn-primary">Submit</button>
 
-  </form>
+ </form>
 
 </div>
 

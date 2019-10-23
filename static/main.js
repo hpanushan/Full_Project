@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"container\">\n\n  <form>\n\n  <div class=\"form-group\">\n    <label for=\"postURL\">Post URL</label>\n    <input type=\"text\" class=\"form-control\" id=\"postURL\" placeholder=\"Post URL\" style=\"width:80%;\">\n  </div>\n\n  <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n\n  </form>\n\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"container\">\n\n  <form class=\"form-group\" #facebook=\"ngForm\" (ngSubmit)=\"onSubmit(facebook)\">\n\n    <div class=\"form-group\">\n      <label for=\"postURL\">Post URL</label>\n      <input type=\"text\" class=\"form-control\" id=\"postURL\" name=\"postURL\" ngModel #cc=\"ngModel\" placeholder=\"Post URL\" style=\"width:80%;\">\n    </div>\n\n    <button class=\"btn btn-primary\">Submit</button>\n\n </form>\n\n</div>\n\n\n");
 
 /***/ }),
 
@@ -363,10 +363,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _jumbotron_jumbotron_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./jumbotron/jumbotron.component */ "./src/app/jumbotron/jumbotron.component.ts");
-/* harmony import */ var _facebook_facebook_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./facebook/facebook.component */ "./src/app/facebook/facebook.component.ts");
-/* harmony import */ var _twitter_twitter_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./twitter/twitter.component */ "./src/app/twitter/twitter.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _jumbotron_jumbotron_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./jumbotron/jumbotron.component */ "./src/app/jumbotron/jumbotron.component.ts");
+/* harmony import */ var _facebook_facebook_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./facebook/facebook.component */ "./src/app/facebook/facebook.component.ts");
+/* harmony import */ var _twitter_twitter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./twitter/twitter.component */ "./src/app/twitter/twitter.component.ts");
+
 
 
 
@@ -376,9 +378,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var appRoutes = [
-    { path: '', component: _jumbotron_jumbotron_component__WEBPACK_IMPORTED_MODULE_5__["JumbotronComponent"] },
-    { path: 'facebook', component: _facebook_facebook_component__WEBPACK_IMPORTED_MODULE_6__["FacebookComponent"] },
-    { path: 'twitter', component: _twitter_twitter_component__WEBPACK_IMPORTED_MODULE_7__["TwitterComponent"] },
+    { path: '', component: _jumbotron_jumbotron_component__WEBPACK_IMPORTED_MODULE_6__["JumbotronComponent"] },
+    { path: 'facebook', component: _facebook_facebook_component__WEBPACK_IMPORTED_MODULE_7__["FacebookComponent"] },
+    { path: 'twitter', component: _twitter_twitter_component__WEBPACK_IMPORTED_MODULE_8__["TwitterComponent"] },
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -386,17 +388,18 @@ var AppModule = /** @class */ (function () {
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _jumbotron_jumbotron_component__WEBPACK_IMPORTED_MODULE_5__["JumbotronComponent"],
-                _facebook_facebook_component__WEBPACK_IMPORTED_MODULE_6__["FacebookComponent"],
-                _twitter_twitter_component__WEBPACK_IMPORTED_MODULE_7__["TwitterComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _jumbotron_jumbotron_component__WEBPACK_IMPORTED_MODULE_6__["JumbotronComponent"],
+                _facebook_facebook_component__WEBPACK_IMPORTED_MODULE_7__["FacebookComponent"],
+                _twitter_twitter_component__WEBPACK_IMPORTED_MODULE_8__["TwitterComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(appRoutes)
+                _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot(appRoutes),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -437,6 +440,9 @@ var FacebookComponent = /** @class */ (function () {
     function FacebookComponent() {
     }
     FacebookComponent.prototype.ngOnInit = function () {
+    };
+    FacebookComponent.prototype.onSubmit = function (facebook) {
+        console.log(facebook.value);
     };
     FacebookComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
